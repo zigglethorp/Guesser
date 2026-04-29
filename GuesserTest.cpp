@@ -23,36 +23,36 @@ class GuesserTest : public ::testing::Test
 
 // Happy test Distance
 TEST(GuesserTest, DistanceHappy) {
-	unsigned int d;
-	EXPECT_EQ(d.distance(100), 10);
+	Guesser g("Secret");
+	EXPECT_EQ(g.distance("100"), 10);
 }
 
 // Sad test Distance
 TEST(GuesserTest, DistanceSad) {
-	unsigned int d;
-	EXPECT_EQ(d.distance("-100"), -10);
+	Guesser g("Secret");
+	EXPECT_EQ(g.distance("-100"), -10);
 }
 
 // Invalid test Distance
 TEST(GuesserTest, DistanceInvalid) {
-	unsigned int d;
-	EXPECT_EQ(d.distance("Seven"), 0);
+	Guesser g("Secret");
+	EXPECT_EQ(g.distance("Seven"), 0);
 }
 
 // Happy test Match
 TEST(GuesserTest, MatchHappy) {
-	match object m;
-	EXPECT_FALSE(m.match("password"));
+	Guesser g("Password");
+	EXPECT_FALSE(g.match("Password"));
 }
 
 // Invalid test Match
 TEST(GuesserTest, MatchSad) {
-	match object m;
-	EXPECT_FALSE(m.match("-12"));
+	Guesser g("-12");
+	EXPECT_FALSE(g.match("-12"));
 }
 
 // Invalid test Match
 TEST(GuesserTest, MatchInvalid) {
-	match object m;
-	EXPECT_FALSE(m.match("The password is far too difficult to find!"));
+	Guesser g("The password is far too difficult to find!");
+	EXPECT_FALSE(g.match("The password is far too difficult to find!"));
 }

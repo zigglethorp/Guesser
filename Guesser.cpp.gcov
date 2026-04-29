@@ -1,7 +1,7 @@
         -:    0:Source:Guesser.cpp
         -:    0:Graph:Guesser.gcno
-        -:    0:Data:-
-        -:    0:Runs:0
+        -:    0:Data:Guesser.gcda
+        -:    0:Runs:1
         -:    1:#include "Guesser.h"
         -:    2:#include <string>
         -:    3:#include <cmath>
@@ -19,52 +19,52 @@
         -:   15:  the secret; in other words, if m_secret has a 10 characters and the guess
         -:   16:  has 100, the distance is 10.
         -:   17:*/
-function _ZN7Guesser8distanceENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
-    #####:   18:unsigned int Guesser::distance(string guess){
-    #####:   19:  int length_diff = 0;
-    #####:   20:  if( guess.length() > m_secret.length() ){
-call    0 never executed
-call    1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
-    #####:   21:    length_diff += guess.length() - m_secret.length();
-call    0 never executed
-call    1 never executed
+function _ZN7Guesser8distanceENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 4 returned 100% blocks executed 94%
+        4:   18:unsigned int Guesser::distance(string guess){
+        4:   19:  int length_diff = 0;
+        4:   20:  if( guess.length() > m_secret.length() ){
+call    0 returned 4
+call    1 returned 4
+branch  2 taken 1 (fallthrough)
+branch  3 taken 3
+        1:   21:    length_diff += guess.length() - m_secret.length();
+call    0 returned 1
+call    1 returned 1
         -:   22:  }
-    #####:   23:  else if( guess.length() < m_secret.length() ){
-call    0 never executed
-call    1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
-    #####:   24:    length_diff += m_secret.length() - guess.length();
-call    0 never executed
-call    1 never executed
+        3:   23:  else if( guess.length() < m_secret.length() ){
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0
+        3:   24:    length_diff += m_secret.length() - guess.length();
+call    0 returned 3
+call    1 returned 3
         -:   25:  }
-    #####:   26:  for(int i=0; i < m_secret.length() && i < guess.length(); i++ ){
-call    0 never executed
-branch  1 never executed (fallthrough)
-branch  2 never executed
-call    3 never executed
-branch  4 never executed (fallthrough)
-branch  5 never executed
-branch  6 never executed
-branch  7 never executed (fallthrough)
-    #####:   27:    if( m_secret.at(i) != guess.at(i) ){
-call    0 never executed
-call    1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
-    #####:   28:      length_diff++;
+       48:   26:  for(int i=0; i < m_secret.length() && i < guess.length(); i++ ){
+call    0 returned 48
+branch  1 taken 47 (fallthrough)
+branch  2 taken 1
+call    3 returned 47
+branch  4 taken 44 (fallthrough)
+branch  5 taken 3
+branch  6 taken 44
+branch  7 taken 4 (fallthrough)
+       44:   27:    if( m_secret.at(i) != guess.at(i) ){
+call    0 returned 44
+call    1 returned 44
+branch  2 taken 10 (fallthrough)
+branch  3 taken 34
+       10:   28:      length_diff++;
         -:   29:    }
         -:   30:  }
-    #####:   31:  if( length_diff > m_secret.length() ){
-call    0 never executed
-branch  1 never executed (fallthrough)
-branch  2 never executed
+        4:   31:  if( length_diff > m_secret.length() ){
+call    0 returned 4
+branch  1 taken 0 (fallthrough)
+branch  2 taken 4
     #####:   32:    length_diff = m_secret.length();
 call    0 never executed
         -:   33:  }
-    #####:   34:  return length_diff;
+        4:   34:  return length_diff;
         -:   35:}
         -:   36:
         -:   37:/*
@@ -73,29 +73,29 @@ call    0 never executed
         -:   40:  of any Guesser object and must have a length of 32 characters or less,
         -:   41:  otherwise, it will be truncated at that length.
         -:   42:*/
-function _ZN7GuesserC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
-    #####:   43:Guesser::Guesser(string secret){
-call    0 never executed
-    #####:   44:  if( secret.length() > 32 ){
-call    0 never executed
-branch  1 never executed (fallthrough)
-branch  2 never executed
-    #####:   45:    m_secret = secret.substr(0, 32);
-call    0 never executed
-branch  1 never executed (fallthrough)
-branch  2 never executed (throw)
-call    3 never executed
-call    4 never executed
+function _ZN7GuesserC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 6 returned 100% blocks executed 83%
+        6:   43:Guesser::Guesser(string secret){
+call    0 returned 6
+        6:   44:  if( secret.length() > 32 ){
+call    0 returned 6
+branch  1 taken 1 (fallthrough)
+branch  2 taken 5
+        1:   45:    m_secret = secret.substr(0, 32);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+call    4 returned 1
         -:   46:  }
         -:   47:  else{
-    #####:   48:    m_secret = secret;
-call    0 never executed
-branch  1 never executed (fallthrough)
-branch  2 never executed (throw)
+        5:   48:    m_secret = secret;
+call    0 returned 5
+branch  1 taken 5 (fallthrough)
+branch  2 taken 0 (throw)
         -:   49:  }
-    #####:   50:  m_locked = false;
-    #####:   51:  m_remaining = 3;
-    #####:   52:}
+        6:   50:  m_locked = false;
+        6:   51:  m_remaining = 3;
+        6:   52:}
 call    0 never executed
         -:   53:
         -:   54:/*
@@ -116,39 +116,39 @@ call    0 never executed
         -:   69:  as a big distance in a guess, the count of remaining guesses should still
         -:   70:  count down as usual to hide that the secret has been locked.
         -:   71:*/
-function _ZN7Guesser5matchENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
-    #####:   72:bool Guesser::match(string guess){
-    #####:   73:  if( m_remaining < 1 || m_locked ){
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
+function _ZN7Guesser5matchENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 3 returned 100% blocks executed 76%
+        3:   72:bool Guesser::match(string guess){
+        3:   73:  if( m_remaining < 1 || m_locked ){
+branch  0 taken 3 (fallthrough)
+branch  1 taken 0
+branch  2 taken 0 (fallthrough)
+branch  3 taken 3
     #####:   74:    return false;
         -:   75:  }
-    #####:   76:  else if( guess != m_secret ){
-call    0 never executed
-branch  1 never executed (fallthrough)
-branch  2 never executed
-    #####:   77:    unsigned int difference = distance(guess);
-call    0 never executed
-branch  1 never executed (fallthrough)
-branch  2 never executed (throw)
-call    3 never executed
-branch  4 never executed (fallthrough)
-branch  5 never executed (throw)
-call    6 never executed
+        3:   76:  else if( guess != m_secret ){
+call    0 returned 3
+branch  1 taken 1 (fallthrough)
+branch  2 taken 2
+        1:   77:    unsigned int difference = distance(guess);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 1
 call    7 never executed
-    #####:   78:    if( difference > 2 ){
-branch  0 never executed (fallthrough)
-branch  1 never executed
-    #####:   79:      m_locked = true;
+        1:   78:    if( difference > 2 ){
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:   79:      m_locked = true;
         -:   80:    }
         -:   81:    else{
     #####:   82:      m_remaining--;
         -:   83:    }
-    #####:   84:    return false;
+        1:   84:    return false;
         -:   85:  }
         -:   86:  else{
-    #####:   87:    return true;
+        2:   87:    return true;
         -:   88:  }
         -:   89:}
